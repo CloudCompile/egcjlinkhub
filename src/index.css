@@ -1,0 +1,119 @@
+/* src/index.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-display: 'Outfit', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Floating animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Reveal animations */
+@keyframes revealRight {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-revealRight {
+  animation: revealRight 1s ease-out forwards;
+}
+
+@keyframes revealUp {
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-revealUp {
+  animation: revealUp 1s ease-out forwards 0.3s;
+}
+
+/* Slide up animation */
+@keyframes slideUp {
+  0% {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-slideUp {
+  animation: slideUp 0.8s ease-out forwards;
+}
+
+/* Shimmer animation */
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 3s ease-in-out infinite;
+  background-size: 200% auto;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+/* Glass effect base styles */
+.glass-effect {
+  @apply bg-white/10 backdrop-blur-md border border-white/20;
+}
+
+/* Gradient animations */
+.gradient-border {
+  @apply relative;
+  background: linear-gradient(90deg, rgba(255,255,255,0.1), rgba(255,255,255,0.2));
+}
+
+.gradient-border::before {
+  content: '';
+  @apply absolute inset-0 bg-gradient-to-r from-purple-400/30 to-pink-400/30 rounded-xl -z-10 blur-sm transition-all duration-300;
+}
+
+/* Hover animations */
+.hover-lift {
+  @apply transition-all duration-300 hover:scale-105 hover:-translate-y-0.5;
+}
